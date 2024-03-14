@@ -21,30 +21,31 @@ const MovieDisplay = ({ movie, addToFavorites }) => {
   };
 
   return (
-    <div className="container d-flex justify-content-center flex-column pb-5 gap-3 z-n1">
+    <div className="container d-flex justify-content-center flex-column pb-5 gap-3 z-n1 ">
       <div className="d-flex justify-content-between align-items-center pb-3 flex-column z-n1 text-center">
         <h1>{movie.Title}</h1>
         <span><strong>Director: </strong>{movie.Director !== 'N/A' ? `${movie.Director}` : ''}</span>
         <span><strong>Release Date: </strong>{formatDate(movie.Released)}</span>
       </div>
-      <div className="row gap-3 justify-content-center z-n1">
+      <div className="row gap-3 justify-content-center">
         <div className="col-12 col-md-5 d-flex justify-content-center justify-content-md-end">
           <img src={movie.Poster} alt={`${movie.Title} Poster`} />
         </div>
         <div className="col-12 col-md-6 d-flex flex-column gap-2">
           <div>
-          <ul className="list-unstyled h5 d-flex flex-column gap-2">
-            <li> <strong>Year:</strong> {movie.Year}</li>
-            <li> <strong>Country:</strong> {movie.Country}</li>
-            <li> <strong>Awards:</strong> {movie.Awards}</li>
-            <li> <strong>Genre:</strong> {movie.Genre}</li>
-            <li> <strong>Language:</strong> {movie.Language}</li>
-            <li> <strong>Plot:</strong> {movie.Plot}</li>
-          </ul>
+            <ul className="list-unstyled h5 d-flex flex-column gap-2">
+              <li> <strong>Year:</strong> {movie.Year}</li>
+              <li> <strong>Country:</strong> {movie.Country}</li>
+              <li> <strong>Awards:</strong> {movie.Awards}</li>
+              <li> <strong>Genre:</strong> {movie.Genre}</li>
+              <li> <strong>Language:</strong> {movie.Language}</li>
+              <li> <strong>Plot:</strong> {movie.Plot}</li>
+            </ul>
+          <button className="align-self-center align-self-sm-start mt-2 btn btn-danger" onClick={() => addToFavorites(movie)}>Add To Favorites</button>
           </div>
         </div>
       </div>
-      <button className="align-self-center align-self-sm-start" onClick={() => addToFavorites(movie)}>Add To Favorites</button>
+      
 
       <div className="container">
         <h2 className="mb-3 text-center">Actors:</h2>

@@ -1,30 +1,40 @@
-// SearchBar.js
-
-import React from "react";
+import React, { useState } from "react";
 
 function SearchBar({ onChange, resultClick, value, autoCompleteResults }) {
+  const [isInputFocused, setIsInputFocused] = useState(false);
+
   return (
-    <div className="container-fluid">
+    <div className="container py-3">
       <div className="d-flex">
         <input
           type="text"
           placeholder="Search a movie..."
-          className="text-center py-1 w-100"
+          class="form-control"
           value={value}
           onChange={onChange}
+          onFocus={() => setIsInputFocused(true)}
+          onBlur={() => setIsInputFocused(false)}
         />
       </div>
-      {autoCompleteResults && autoCompleteResults.length > 0 && (
-        <div className="w-50 mx-auto mt-1 bg-dark-subtle">
-          <ul className="list-unstyled px-2 py-1 res">
-            {autoCompleteResults.map(result => (
-              <li key={result.imdbID} onClick={() => resultClick(result.Title)}>
-                {result.Title}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+
+      {isInputFocused &&
+        autoCompleteResults && (
+          <div id="list1" class="list-group hide position-absolute w-50">
+            <ul className="list-unstyled px-2 py-1 res">
+              {autoCompleteResults.map((result) => (
+                <li
+                  className="list-group-item"
+                  key={result.imdbID}
+                  onClick={() => resultClick(result.Title)}
+                >
+                  {result.Title}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+      <div class="form-group"></div>
     </div>
   );
 }
