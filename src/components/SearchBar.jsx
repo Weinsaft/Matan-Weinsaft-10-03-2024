@@ -13,7 +13,7 @@ function SearchBar({ onChange, resultClick, value, autoCompleteResults }) {
           value={value}
           onChange={onChange}
           onFocus={() => setIsInputFocused(true)}
-          onBlur={() => setIsInputFocused(false)}
+          
         />
       </div>
 
