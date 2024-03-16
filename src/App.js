@@ -1,10 +1,7 @@
-// App.js
-
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import MainPage from "./pages/MainPage";
 import FavoritesPage from "./pages/FavoritesPage";
 import SearchBar from "./components/SearchBar";
 import MovieDisplay from "./components/MovieDisplay";
@@ -66,7 +63,7 @@ function App() {
       setAutoComplete(responseJson.Search);
     }
 
-    console.log(responseJson);
+  
   };
 
   useEffect(() => {
@@ -93,8 +90,12 @@ function App() {
   };
 
   const addToFavorites = (movie) => {
-    setFavorites([...favorites, movie]);
-    localStorage.setItem("favorites", JSON.stringify([...favorites, movie]));
+    
+    if (!favorites.find(favorite => favorite.imdbID === movie.imdbID)) {
+      const newFavorites = [...favorites, movie];
+      setFavorites(newFavorites);
+      localStorage.setItem("favorites", JSON.stringify(newFavorites));
+    }
   };
 
   return (

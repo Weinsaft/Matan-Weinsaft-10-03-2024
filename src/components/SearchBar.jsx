@@ -9,7 +9,7 @@ function SearchBar({ onChange, resultClick, value, autoCompleteResults }) {
         <input
           type="text"
           placeholder="Search a movie..."
-          class="form-control"
+          className="form-control"
           value={value}
           onChange={onChange}
           onFocus={() => setIsInputFocused(true)}
@@ -19,7 +19,7 @@ function SearchBar({ onChange, resultClick, value, autoCompleteResults }) {
 
       {isInputFocused &&
         autoCompleteResults && (
-          <div id="list1" class="list-group hide position-absolute w-50">
+          <div id="list1" className="list-group hide position-absolute w-50">
             <ul className="list-unstyled px-2 py-1 res">
               {autoCompleteResults.map((result) => (
                 <li
@@ -34,7 +34,7 @@ function SearchBar({ onChange, resultClick, value, autoCompleteResults }) {
           </div>
         )}
 
-      <div class="form-group"></div>
+      <div className="form-group"></div>
     </div>
   );
 }
