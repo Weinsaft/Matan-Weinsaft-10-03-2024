@@ -94,6 +94,10 @@ function App() {
       const newFavorites = [...favorites, movie];
       setFavorites(newFavorites);
       localStorage.setItem("favorites", JSON.stringify(newFavorites));
+    }else{
+      const newFavorites = favorites.filter(favorite => favorite.imdbID !== movie.imdbID);
+      setFavorites(newFavorites);
+      localStorage.setItem("favorites", JSON.stringify(newFavorites));
     }
   };
 
@@ -117,7 +121,7 @@ function App() {
                 value={searchValue}
                 resultClick={handleResultClick}
               />
-              <MovieDisplay movie={movie} addToFavorites={addToFavorites} />
+              <MovieDisplay movie={movie} addToFavorites={addToFavorites} isFav={(favorites.find(favorite => favorite.imdbID === movie.imdbID))} />
             </>
           }
         />
