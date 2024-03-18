@@ -17,33 +17,37 @@ const MovieDisplay = ({ movie, addToFavorites, isFav }) => {
     const year = date.getFullYear();
     return `${day}/${month}/${year}`;
   };
-  
 
   return (
     <div className="bg-glass border-dark-subtle mx-2 mx-sm-5 py-2">
       <div className="d-flex justify-content-between align-items-sm-center pb-3 flex-column z-n1 px-3 fadeIn">
         <h1>{movie.Title}</h1>
-        <span className="h6">
-          <strong>Director: </strong>
-          {movie.Director !== "N/A" ? `${movie.Director}` : ""}
-        </span>
+        {movie.Director !== "N/A" && (
+          <span className="h6">
+            <strong>Director: </strong>
+            {movie.Director}
+          </span>
+        )}
+
         <span className="h6">
           <strong>Release Date: </strong>
           {formatDate(movie.Released)}
         </span>
-        <div className="rating">
-          <span className="h3 mb-0 lh-1">
-            <FontAwesomeIcon
-              icon={faStar}
-              style={{ color: "#FFD43B" }}
-              className="me-1"
-            />
-            {movie.imdbRating}/10
-          </span>
-          <span className="mb-0 mx-2 align-self-end">
-            ({movie.imdbVotes} Votes)
-          </span>
-        </div>
+        {movie.imdbRating !== "N/A" && (
+          <div className="rating">
+            <span className="h3 mb-0 lh-1">
+              <FontAwesomeIcon
+                icon={faStar}
+                style={{ color: "#FFD43B" }}
+                className="me-1"
+              />
+              {movie.imdbRating}/10
+            </span>
+            <span className="mb-0 mx-2 align-self-end">
+              ({movie.imdbVotes} Votes)
+            </span>
+          </div>
+        )}
       </div>
 
       <div className="line-animation mb-3 d-none d-sm-block bg-dark-subtle"></div>
@@ -112,7 +116,7 @@ const MovieDisplay = ({ movie, addToFavorites, isFav }) => {
             {parseActors().map((actor, index) => (
               <div
                 key={index}
-                className="col-10 col-lg-3 d-flex justify-content-center align-items-center actor-card bg-dark py-3  text-center card"
+                className="col-10 col-lg-3 d-flex justify-content-center align-items-center actor-card bg-dark py-3 text-center card"
               >
                 <p className="mb-0 h5 text-white">{actor}</p>
               </div>

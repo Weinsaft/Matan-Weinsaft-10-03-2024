@@ -7,7 +7,7 @@ const FavoritesPage = ({ favorites, removeFavoriteMovie }) => {
       <h1 className="text-center">Favorites</h1>
       <div className="row justify-content-center justify-content-lg-center gap-4">
         {favorites.map((movie, index) => (
-          <Card key={index} poster={movie.Poster} title={movie.Title} year={movie.Year} director={movie.Director} onClick={() => removeFavoriteMovie(movie)}/>
+          <Card key={index} poster={movie.Poster} title={movie.Title} year={movie.Year} director={movie.Director} onBtnClick={() => removeFavoriteMovie(movie)}/>
         ))}
       </div>
     </div>
