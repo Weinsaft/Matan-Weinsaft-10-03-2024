@@ -19,7 +19,7 @@ function SearchBar({ onChange, resultClick, value, autoCompleteResults }) {
 
       {isInputFocused &&
         autoCompleteResults && (
-          <div id="list1" className="list-group hide position-absolute w-50">
+          <div id="list1" className="list-group hide position-absolute w-50 z-2">
             <ul className="list-unstyled px-2 py-1 res">
               {autoCompleteResults.map((result) => (
                 <li

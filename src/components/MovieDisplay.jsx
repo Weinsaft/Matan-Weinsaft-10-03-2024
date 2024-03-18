@@ -32,7 +32,11 @@ const MovieDisplay = ({ movie, addToFavorites, isFav }) => {
         </span>
         <div className="rating">
           <span className="h3 mb-0 lh-1">
-            <FontAwesomeIcon icon={faStar} style={{ color: "#FFD43B" }} className="me-1" />
+            <FontAwesomeIcon
+              icon={faStar}
+              style={{ color: "#FFD43B" }}
+              className="me-1"
+            />
             {movie.imdbRating}/10
           </span>
           <span className="mb-0 mx-2 align-self-end">
@@ -90,7 +94,12 @@ const MovieDisplay = ({ movie, addToFavorites, isFav }) => {
                 className="align-self-center align-self-sm-start mt-2 btn bg-danger-subtle"
                 onClick={() => addToFavorites(movie)}
               >
-                Add To Favorites <FontAwesomeIcon icon={faHeart} color={isFav && 'red'} />
+                Add To Favorites{" "}
+                <FontAwesomeIcon
+                  icon={faHeart}
+                  color={isFav ? "red" : "white"}
+                  style={{ transition: "color .7s" }}
+                />
               </button>
             </div>
           </div>
