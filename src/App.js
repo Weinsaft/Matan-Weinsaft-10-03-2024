@@ -5,6 +5,8 @@ import Navbar from "./components/Navbar";
 import FavoritesList from "./components/FavoritesList";
 import SearchBar from "./components/SearchBar";
 import MovieDisplay from "./components/MovieDisplay";
+import Loader from "./components/common/Loader";
+import Modal from "./components/common/Modal";
 
 function App() {
   const [movie, setMovie] = useState({
@@ -54,16 +56,23 @@ function App() {
     const storedFavorites = localStorage.getItem("favorites");
     return storedFavorites ? JSON.parse(storedFavorites) : [];
   });
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const getAutoComplete = async () => {
-    const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=5cc103fc`;
-    const response = await fetch(url);
-    const responseJson = await response.json();
-    if (responseJson && responseJson.Search) {
-      setAutoComplete(responseJson.Search);
+    
+    try {
+      const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=5cc103fc`;
+      const response = await fetch(url);
+      const responseJson = await response.json();
+      if (responseJson && responseJson.Search) {
+        setAutoComplete(responseJson.Search);
+      }
+    } catch (error) {
+      setError(error);
+    } finally {
+      setIsLoading(false);
     }
-
-  
   };
 
   useEffect(() => {
@@ -71,15 +80,21 @@ function App() {
   }, [searchValue]);
 
   const handleResultClick = async (query) => {
-    const url = `http://www.omdbapi.com/?t=${query}&apikey=5cc103fc`;
-    const response = await fetch(url);
-    const responseJson = await response.json();
-    if (responseJson) {
-      setMovie(responseJson);
+    setIsLoading(true);
+    try {
+      const url = `http://www.omdbapi.com/?t=${query}&apikey=5cc103fc`;
+      const response = await fetch(url);
+      const responseJson = await response.json();
+      if (responseJson) {
+        setMovie(responseJson);
+      }
+      setSearchValue("");
+      setAutoComplete([]);
+    } catch (error) {
+      setError(error);
+    } finally {
+      setIsLoading(false);
     }
-
-    setSearchValue("");
-    setAutoComplete([]);
   };
 
   const handleInputChange = (e) => {
@@ -90,26 +105,32 @@ function App() {
   };
 
   const addToFavorites = (movie) => {
-    if (!favorites.find(favorite => favorite.imdbID === movie.imdbID)) {
+    if (!favorites.find((favorite) => favorite.imdbID === movie.imdbID)) {
       const newFavorites = [...favorites, movie];
       setFavorites(newFavorites);
       localStorage.setItem("favorites", JSON.stringify(newFavorites));
-    }else{
-      const newFavorites = favorites.filter(favorite => favorite.imdbID !== movie.imdbID);
+    } else {
+      const newFavorites = favorites.filter(
+        (favorite) => favorite.imdbID !== movie.imdbID
+      );
       setFavorites(newFavorites);
       localStorage.setItem("favorites", JSON.stringify(newFavorites));
     }
   };
 
   const removeFromFavorites = (movie) => {
-    const newFavorites = favorites.filter(favorite => favorite.imdbID !== movie.imdbID);
+    const newFavorites = favorites.filter(
+      (favorite) => favorite.imdbID !== movie.imdbID
+    );
     setFavorites(newFavorites);
     localStorage.setItem("favorites", JSON.stringify(newFavorites));
-};
+  };
 
   return (
     <BrowserRouter>
-    <Navbar />
+      <Navbar />
+      {isLoading && <Loader />} {/* Show loader while fetching data */}
+      {error && <Modal errorMessage={error.message} onClose={() => setError(null)} />} {/* Display error modal if any */}
       <Routes>
         <Route
           path="/"
@@ -121,7 +142,11 @@ function App() {
                 value={searchValue}
                 resultClick={handleResultClick}
               />
-              <MovieDisplay movie={movie} addToFavorites={addToFavorites} isFav={(favorites.find(favorite => favorite.imdbID === movie.imdbID))} />
+              <MovieDisplay
+                movie={movie}
+                addToFavorites={addToFavorites}
+                isFav={favorites.find((favorite) => favorite.imdbID === movie.imdbID)}
+              />
             </>
           }
         />

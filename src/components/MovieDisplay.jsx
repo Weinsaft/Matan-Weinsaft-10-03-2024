@@ -17,9 +17,10 @@ const MovieDisplay = ({ movie, addToFavorites, isFav }) => {
     const year = date.getFullYear();
     return `${day}/${month}/${year}`;
   };
+  
 
   return (
-    <div className="bg-glass mx-2 mx-sm-5 py-2">
+    <div className="bg-glass border-dark-subtle mx-2 mx-sm-5 py-2">
       <div className="d-flex justify-content-between align-items-sm-center pb-3 flex-column z-n1 px-3 fadeIn">
         <h1>{movie.Title}</h1>
         <span className="h6">
@@ -45,7 +46,7 @@ const MovieDisplay = ({ movie, addToFavorites, isFav }) => {
         </div>
       </div>
 
-      <div className="line-animation mb-3 d-none d-sm-block"></div>
+      <div className="line-animation mb-3 d-none d-sm-block bg-dark-subtle"></div>
 
       <div className="container d-flex justify-content-center flex-column pb-5 gap-3 z-n1 fadeIn">
         <div className="row gap-3 justify-content-center">
