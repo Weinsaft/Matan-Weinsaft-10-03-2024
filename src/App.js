@@ -62,7 +62,7 @@ function App() {
   const getAutoComplete = async () => {
     
     try {
-      const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=5cc103fc`;
+      const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=5cc103fc`;
       const response = await fetch(url);
       const responseJson = await response.json();
       if (responseJson && responseJson.Search) {
@@ -82,7 +82,7 @@ function App() {
   const handleResultClick = async (query) => {
     setIsLoading(true);
     try {
-      const url = `http://www.omdbapi.com/?t=${query}&apikey=5cc103fc`;
+      const url = `https://www.omdbapi.com/?t=${query}&apikey=5cc103fc`;
       const response = await fetch(url);
       const responseJson = await response.json();
       if (responseJson) {
