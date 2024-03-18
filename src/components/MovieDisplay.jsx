@@ -1,5 +1,3 @@
-// MovieDisplay.js
-
 import React from "react";
 
 const MovieDisplay = ({ movie, addToFavorites }) => {
@@ -23,15 +21,17 @@ const MovieDisplay = ({ movie, addToFavorites }) => {
  
 
   return (
-    <div className="container d-flex justify-content-center flex-column pb-5 gap-3 z-n1 ">
-      <div className="d-flex justify-content-between align-items-center pb-3 flex-column z-n1 text-center">
+    <>
+    <div className="d-flex justify-content-between align-items-center pb-3 flex-column z-n1 text-center fadeIn">
         <h1>{movie.Title}</h1>
-        <span><strong>Director: </strong>{movie.Director !== 'N/A' ? `${movie.Director}` : ''}</span>
-        <span><strong>Release Date: </strong>{formatDate(movie.Released)}</span>
-      </div>
+        <span className="h5"><strong>Director: </strong>{movie.Director !== 'N/A' ? `${movie.Director}` : ''}</span>
+        <span className="h5"><strong>Release Date: </strong>{formatDate(movie.Released)}</span>
+    </div>
+    <div className="line-animation mb-3"></div>
+    <div className="container d-flex justify-content-center flex-column pb-5 gap-3 z-n1 fadeIn">
       <div className="row gap-3 justify-content-center">
         <div className="col-12 col-md-5 d-flex justify-content-center justify-content-md-end">
-          <img src={movie.Poster !== 'N/A' ? movie.Poster : 'https://placehold.co/600x400'} alt={`${movie.Title} Poster`} />
+          <img src={movie.Poster !== 'N/A' ? movie.Poster : 'https://placehold.co/300x426'} alt={`${movie.Title} Poster`} width={300} height={426} />
         </div>
         <div className="col-12 col-md-6 d-flex flex-column gap-2">
           <div>
@@ -60,6 +60,7 @@ const MovieDisplay = ({ movie, addToFavorites }) => {
       </div>
       </div>
     </div>
+    </>
   );
 };
 
