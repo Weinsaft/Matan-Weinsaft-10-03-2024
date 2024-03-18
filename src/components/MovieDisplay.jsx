@@ -27,7 +27,7 @@ const MovieDisplay = ({ movie, addToFavorites }) => {
         <span className="h5"><strong>Director: </strong>{movie.Director !== 'N/A' ? `${movie.Director}` : ''}</span>
         <span className="h5"><strong>Release Date: </strong>{formatDate(movie.Released)}</span>
     </div>
-    <div className="line-animation mb-3"></div>
+    <div className="line-animation mb-3 "></div>
     <div className="container d-flex justify-content-center flex-column pb-5 gap-3 z-n1 fadeIn">
       <div className="row gap-3 justify-content-center">
         <div className="col-12 col-md-5 d-flex justify-content-center justify-content-md-end">
