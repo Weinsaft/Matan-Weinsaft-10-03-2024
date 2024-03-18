@@ -133,7 +133,7 @@ function App() {
       {error && <Modal errorMessage={error.message} onClose={() => setError(null)} />} {/* Display error modal if any */}
       <Routes>
         <Route
-          path="/"
+          path="/Matan-Weinsaft-10-03-2024"
           element={
             <>
               <SearchBar
