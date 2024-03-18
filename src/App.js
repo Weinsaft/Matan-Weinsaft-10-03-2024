@@ -90,7 +90,6 @@ function App() {
   };
 
   const addToFavorites = (movie) => {
-    
     if (!favorites.find(favorite => favorite.imdbID === movie.imdbID)) {
       const newFavorites = [...favorites, movie];
       setFavorites(newFavorites);
@@ -98,9 +97,15 @@ function App() {
     }
   };
 
+  const removeFromFavorites = (movie) => {
+    const newFavorites = favorites.filter(favorite => favorite.imdbID !== movie.imdbID);
+    setFavorites(newFavorites);
+    localStorage.setItem("favorites", JSON.stringify(newFavorites));
+};
+
   return (
     <BrowserRouter>
-      <Navbar />
+    <Navbar />
       <Routes>
         <Route
           path="/"
@@ -118,7 +123,7 @@ function App() {
         />
         <Route
           path="/favorites"
-          element={<FavoritesPage favorites={favorites} />}
+          element={<FavoritesPage favorites={favorites} removeFavoriteMovie={removeFromFavorites} />}
         />
       </Routes>
     </BrowserRouter>

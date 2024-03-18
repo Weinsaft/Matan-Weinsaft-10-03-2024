@@ -11,7 +11,7 @@ const Card = ({poster, title, director, year, onClick}) => {
         <div className="d-flex flex-column">
           <h2 className="h4">{title}</h2>
           <span className="h6">{year}</span>
-            <button onClick={onClick}>Remove Favorite</button>
+            <button onClick={onClick} className="btn btn-danger">Remove Favorite</button>
         </div>
       </div>
     </div>
