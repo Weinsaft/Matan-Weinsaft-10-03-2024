@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import FavoritesPage from "./pages/FavoritesPage";
+import FavoritesList from "./components/FavoritesList";
 import SearchBar from "./components/SearchBar";
 import MovieDisplay from "./components/MovieDisplay";
 
@@ -127,7 +127,7 @@ function App() {
         />
         <Route
           path="/favorites"
-          element={<FavoritesPage favorites={favorites} removeFavoriteMovie={removeFromFavorites} />}
+          element={<FavoritesList favorites={favorites} removeFavoriteMovie={removeFromFavorites} />}
         />
       </Routes>
     </BrowserRouter>
