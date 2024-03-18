@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/movies-app/static/css/main.0fc24474.css",
-    "main.js": "/movies-app/static/js/main.8a4d3ea7.js",
-    "index.html": "/movies-app/index.html",
-    "static/media/wine-glass.svg": "/movies-app/static/media/wine-glass.976e169c6adee87b6fe13e812ae72c18.svg",
-    "main.0fc24474.css.map": "/movies-app/static/css/main.0fc24474.css.map",
-    "main.8a4d3ea7.js.map": "/movies-app/static/js/main.8a4d3ea7.js.map"
+    "main.css": "/Matan-Weinsaft-10-03-2024/static/css/main.0fc24474.css",
+    "main.js": "/Matan-Weinsaft-10-03-2024/static/js/main.fd3073ca.js",
+    "index.html": "/Matan-Weinsaft-10-03-2024/index.html",
+    "static/media/wine-glass.svg": "/Matan-Weinsaft-10-03-2024/static/media/wine-glass.976e169c6adee87b6fe13e812ae72c18.svg",
+    "main.0fc24474.css.map": "/Matan-Weinsaft-10-03-2024/static/css/main.0fc24474.css.map",
+    "main.fd3073ca.js.map": "/Matan-Weinsaft-10-03-2024/static/js/main.fd3073ca.js.map"
   },
   "entrypoints": [
     "static/css/main.0fc24474.css",
-    "static/js/main.8a4d3ea7.js"
+    "static/js/main.fd3073ca.js"
   ]
 }
