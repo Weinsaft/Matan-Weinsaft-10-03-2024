@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Matan-Weinsaft-10-03-2024/static/css/main.0fc24474.css",
-    "main.js": "/Matan-Weinsaft-10-03-2024/static/js/main.6dab8c9f.js",
+    "main.js": "/Matan-Weinsaft-10-03-2024/static/js/main.186ac726.js",
     "index.html": "/Matan-Weinsaft-10-03-2024/index.html",
     "static/media/wine-glass.svg": "/Matan-Weinsaft-10-03-2024/static/media/wine-glass.976e169c6adee87b6fe13e812ae72c18.svg",
     "main.0fc24474.css.map": "/Matan-Weinsaft-10-03-2024/static/css/main.0fc24474.css.map",
-    "main.6dab8c9f.js.map": "/Matan-Weinsaft-10-03-2024/static/js/main.6dab8c9f.js.map"
+    "main.186ac726.js.map": "/Matan-Weinsaft-10-03-2024/static/js/main.186ac726.js.map"
   },
   "entrypoints": [
     "static/css/main.0fc24474.css",
-    "static/js/main.6dab8c9f.js"
+    "static/js/main.186ac726.js"
   ]
 }
