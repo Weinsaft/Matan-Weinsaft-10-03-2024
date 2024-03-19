@@ -127,12 +127,13 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Matan-Weinsaft-10-03-2024">
       <Navbar />
       {isLoading && <Loader />} 
       {error && <Modal errorMessage={error.message} onClose={() => setError(null)} />} 
       <Routes>
         <Route
+          exact
           path="/"
           element={
             <>
