@@ -129,11 +129,11 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
-      {isLoading && <Loader />} {/* Show loader while fetching data */}
-      {error && <Modal errorMessage={error.message} onClose={() => setError(null)} />} {/* Display error modal if any */}
+      {isLoading && <Loader />} 
+      {error && <Modal errorMessage={error.message} onClose={() => setError(null)} />} 
       <Routes>
         <Route
-          path="/Matan-Weinsaft-10-03-2024"
+          path="/"
           element={
             <>
               <SearchBar
